@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>发帖 &raquo; 社区 &raquo; OpenResty China</title>
+  {(meta.html)}
+</head>
+<body>
+{(header.html)}
+
+<div id="main" class="main-container container">
+    <div id="notifications" class="panel panel-default">
+        <div class="tools panel-heading">
+            <div class="pull-left">
+                <h4>通知提醒</h4>
+            </div>
+            <div class="pull-right">
+                <a class="btn btn-danger" rel="nofollow" href="/notifications/delete_all">
+                    <i class="fa fa-fa fa-trash"></i>
+                    <span>全部删除</span>
+                </a>
+                <a class="btn btn-info" rel="nofollow" href="/notifications/mark">
+                    <i class="fa fa-fa fa-mark"></i>
+                    <span>全部标记为已读</span>
+                </a>
+                <a class="btn btn-default" href="/notifications/unread">
+                    <i class="fa fa-fa fa-filter"></i>
+                    <span>未读</span>
+                </a>
+            </div> 
+        </div>
+        <div class="panel-body">
+            <div class="media notification" id="notification-993262">
+                <div class="media-left avatar">
+                    <a href="/kewin">
+                        <img class="media-object avatar-48" src="https://ruby-china-files.b0.upaiyun.com/user/large_avatar/515.jpg"
+                        alt="515">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <div class="media-heading">
+                        <span class="user">
+                            <a data-name="kewin" href="/kewin">
+                                kewin
+                            </a>
+                        </span>
+                        <span class="info">
+                            在帖子
+                            <a title="Ruby China 官方 iOS 客户端已发布上线" href="/topics/28953#reply33">
+                                Ruby China 官方 iOS 客户端已发布上线
+                            </a>
+                            回复了：
+                        </span>
+                        <span class="new label label-warning">
+                            新
+                        </span>
+                        <span class="date pull-right">
+                            <i class="fa fa-clock-o">
+                            </i>
+                            <abbr class="timeago" title="2016-02-16T11:22:37+08:00">
+                                16 分钟前
+                            </abbr>
+                        </span>
+                    </div>
+                    <div class="summary markdown">
+                        <p>
+                            代码克隆在本地部署后 发现很屌呀 很好用 期待着更好
+                        </p>
+                    </div>
+                </div>
+                <div class="media-right opts">
+                    <a data-remote="true" rel="nofollow" data-method="delete" href="/notifications/993262">
+                        <i class="fa fa-trash">
+                        </i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+            $.ajax({
+                url : '/notification/all',
+                type : 'get',
+                data : {
+                    page_no: 1,
+                    page_size: 20
+                },
+                dataType : 'json',
+                success : function(result) {
+                    console.log(result)
+                    if(result.success){
+
+                    }else{
+
+                    }
+                },
+                error : function() {
+
+                }
+            });
+    });
+</script>
+ 
+
+
+{(footer.html)}
+</body>
+</html>

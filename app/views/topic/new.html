@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>发帖 &raquo; 社区 &raquo; OpenResty China</title>
+  {(meta.html)}
+</head>
+<body>
+{(header.html)}
+
+<div id="main" class="main-container container">
+    <div class="panel panel-default">
+        <div class="panel-heading">发布新文章</div>
+        <div class="panel-body">
+            <form class="simple_form form" id="new_topic" action="/topic/new" method="post">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div class="form-group">
+                                <select class="form-control" name="category">
+                                    <option value ="1">分享</option>
+                                    <option value ="2">问答</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-10">
+                            <input class="form-control" placeholder="在这里填写标题" type="text" name="title">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <textarea class="topic-editor form-control closewarning" rows="20" name="content"></textarea>
+                </div>
+                <div class="form-group">
+                    <a id="commit" class="btn btn-primary col-xs-2">保存</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#commit").click(function(){
+            var category_id =$("select[name=category]").val();
+            var title = $("input[name=title]").val();
+            var content= $("textarea[name=content]").val();
+
+            if(!title || !content){
+                APP.Common.showTipDialog("提示", "请输入标题和内容");
+                return;
+            }
+
+            if(title.length>250||title.length<8 || content.length>5000 || content.length<20){
+                APP.Common.showTipDialog("提示", "标题长度须大于8小于250，内容长度须大于20小于5000");
+                return;
+            }
+
+            $.ajax({
+                url : '/topic/new',
+                type : 'post',
+                data : {
+                    title: title,
+                    category_id: category_id,
+                    content: content
+                },
+                dataType : 'json',
+                success : function(result) {
+                    if(result.success){
+                        window.location.href="/topic/"+result.data.id+"/view";
+                    }else{
+                        alert(result.msg);
+                    }
+                },
+                error : function() {
+                    alert("error to save");
+                }
+            });
+        })
+    });
+</script>
+ 
+
+
+{(footer.html)}
+</body>
+</html>

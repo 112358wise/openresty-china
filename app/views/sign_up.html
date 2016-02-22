@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OpenResty China 社区 &raquo; 注册</title>
+  {(meta.html)}
+</head>
+<body data-controller-name="sessions">
+{(header.html)}
+
+<div id="main" class="main-container container">
+    <div class="row" style="margin-top:60px;">
+        <div class="col-md-5 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    注册新用户
+                </div>
+                <div class="panel-body">
+                    <form class="simple_form " action="/auth/sign_up" method="post">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="用户名" name="username">
+                        </div>
+
+                       
+                        <div class="form-group">
+                            <input class="form-control" placeholder="密码" type="password" name="password">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="确认密码" type="password" name="password_confirm">
+                        </div>
+
+                        <div class="form-group">
+                            <a href="javascript:void(0);" class="btn btn-primary">提交注册信息</a>
+                            /
+                            <a class="btn btn-default" href="/auth/login">登录</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+{(footer.html)}
+</body>
+</html>
