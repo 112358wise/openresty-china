@@ -1,15 +1,4 @@
 return {
-	
-	users = {
-	    {
-	        username = "test",
-	        password = "test"
-	    },
-	    {
-	        username = "sumory",
-	        password = "1"
-	    }
-	},
 
 	whitelist = {
 		"^/index$",
@@ -37,7 +26,7 @@ return {
 		"^/error/$" -- error page
 	},
 
-	pwd_secret = "salt_secret_for_password",
+	pwd_secret = "salt_secret_for_password", -- not used for now
 
 	mysql = {
 		timeout = 5000,
