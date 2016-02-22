@@ -7,6 +7,7 @@
 - 基于[Lor Framework](https://github.com/sumory/lor)，轻松简单的开发Sinatra风格的web应用
 - 存储采用MySQL，文件本地落地存储
 
+![首页](./assets/index.jpg)
 
 
 ### 快速开始
@@ -19,7 +20,7 @@
 - 有几个初始账户供体验: admin/sumory/momo，密码均为test
 
 
-### roadmap
+### assets
 
 目前基本功能完成度在90%左右，还有一些边边角角需要完善，目前的版本仅供体验。
 

@@ -7,6 +7,7 @@ tmp
 uwsgi_temp
 *.pid
 .idea
+app/static/jsx
 
 # Compiled Lua sources
 luac.out
